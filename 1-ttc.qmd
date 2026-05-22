@@ -73,7 +73,7 @@ In this notebook, we use MLflow in two ways:
 
 [MLflow](https://mlflow.org/) is an open-source platform for tracking machine learning experiments. Every time a model is trained, MLflow records the hyperparameters used, the metrics obtained (loss, accuracy…), and the model artefacts (weights, tokenizer, configuration). This makes it easy to compare runs, reproduce results, and share trained models with others. This funathon project uses MLflow in multiple ways.
 
-Because the MLflow server is a remote, access-controlled service, you need to provide two pieces of information:
+Because the MLflow server is a remote, access-controlled service, you need to provide three pieces of information:
 
 - `MLFLOW_TRACKING_URI`: the URL of the MLflow server (ex: ``https://projet-funathon-mlflow.user.lab.sspcloud.fr/``).
 - `MLFLOW_TRACKING_USERNAME`
