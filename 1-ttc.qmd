@@ -468,10 +468,8 @@ ttc = torchTextClassifiers(
 
 ## Question 2 — Prepare training
 
-<details>
-<summary>Clue here</summary>
-Create a `TrainingConfig(lr=..., batch_size=..., num_epochs=...)` and call `ttc.train(X_train=..., y_train=..., X_val=..., y_val=..., training_config=..., verbose=True)`. Train on a small subsample so it completes quickly. __Use only 1 epoch for fast training__.
-</details>
+
+Create a `TrainingConfig(lr=..., batch_size=..., num_epochs=...)`. Look at the [documentation](https://inseefrlab.github.io/torchTextClassifiers/api/configs.html#trainingconfig). Do you understand what each argument does? __Use only 1 epoch for fast training__.
 
 ::: {.callout-note appearance="simple" collapse="true"}
 ## Play with hyperparameters
