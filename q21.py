@@ -89,8 +89,9 @@ training_config = TrainingConfig(
 mlflow.set_experiment("funathon-2026-project2")
 mlflow.pytorch.autolog()
 
-with mlflow.start_run() as run:
+with mlflow.start_run(run_name="Trening_TTC_Model_V1") as run:
     # This should take approximately 1-2mn
+    run_id = run.info.run_id
     ttc.train(
         X_train,
         y_train,
@@ -104,8 +105,18 @@ with mlflow.start_run() as run:
         training_config.save_path,   # local folder produced by ttc.train()
         artifact_path="model_artifacts",
     )
+    # REJESTRACJA I NAZWANIE MODELU
+    # Autolog dla PyTorch zawsze zapisuje model w ścieżce artefaktów o nazwie "model"
+    model_uri = f"runs:/{run_id}/model"
+    
+    mlflow.register_model(
+        model_uri=model_uri,
+        name="Trening_TTC_Model_V1"  # Wpisz tutaj swoją unikalną nazwę
+    )
 
-import s3fs
+
+# Model wytrenowany wcześniej, bardziej, lepszy od tego trenowanego w 1 epoch
+""" import s3fs
 
 fs = s3fs.S3FileSystem(
     anon=True,  # public bucket
@@ -120,7 +131,7 @@ fs.get(
 # Rebuild the torchTextClassifiers object from the downloaded files
 ttc = torchTextClassifiers.load(local_dir)
 ttc.pytorch_model.eval()
-
+ """
 import random
 
 random_indices = random.sample(range(len(X_test)), 3)
