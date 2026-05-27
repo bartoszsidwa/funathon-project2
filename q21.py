@@ -213,4 +213,3 @@ results_test = ttc.predict(X_test, top_k=1)
 preds    = results_test["prediction"].squeeze(1)
 accuracy = (preds == y_test).mean()
 print(f"Test accuracy: {accuracy:.4f} ({int(accuracy * len(y_test))}/{len(y_test)} correct)")
-# %%
