@@ -143,7 +143,7 @@ for i, text in enumerate(example_texts):
     print(f"\nText: {text}")
     print(f"  True code: {example_true_codes[i]}")
     for code, conf in zip(predicted_codes, confidence):
-        print(f"  {code}  (confidence: {conf:.3f})")
+        print(f" {code} (confidence: {conf:.3f})")
 
 text_idx = 0
 top_k_idx = 0
@@ -192,7 +192,7 @@ figshow(plot_attributions_at_char(
 figshow(plot_attributions_at_word(
     text=text_sample, words=words.values(), attributions_per_word=word_attributions, titles=titles,
 )[0])
-# %%
+
 results_test = ttc.predict(X_test, top_k=1)
 preds = results_test["prediction"].squeeze(1)
 accuracy = (preds == y_test).mean()
